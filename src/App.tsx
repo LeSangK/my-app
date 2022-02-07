@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import {format} from 'date-fns'
+import ja from 'date-fns/locale/ja'
 
-function App() {
+console.log(format(new Date(), 'd(E)', {locale: ja})) // 日本語
+
+export default function App() {
+  const [items, setItems] = useState([{ name: "きのこ" }]);
+  console.log("render")
+
+  const addItem = () => {
+    const newItem = items.length === 0 ? {
+      name: Math.random() > 0.5 ? "きのこ" : "たけのこ"
+    } :{
+      name: items.slice(-1)[0].name === "きのこ" ? "たけのこ" : "きのこ"  
+    };
+    // 現在の items に newItem を追加した配列を setItems に渡す。
+    setItems([...items, newItem]);
+  };
+
+  // 引数 index は削除したい要素のインデックス
+  const deleteItem = (index: number) => {
+    // 現在の items から、引数 index と同じインデックスの要素を
+    // 削除した配列を setItems に渡す。
+    setItems(items.filter((_, i) => i !== index));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <button onClick={addItem}>「きのこ」か「たけのこ」を追加</button>
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>
+            {item.name}
+            <button onClick={() => deleteItem(index)}>削除</button>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
-
-export default App;
