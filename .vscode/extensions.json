@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "msjsdiag.debugger-for-chrome",
+    "mike-co.import-sorter",
+    "streetsidesoftware.code-spell-checker",
+    "donjayamanne.githistory",
+    "ms-ceintl.vscode-language-pack-ja"
+  ]
+}
