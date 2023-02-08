@@ -28,7 +28,3 @@ jobs:
       - run: yarn build
         env:
           IGNORE_COMMON_STORIES: true
-      - name: Remove ssh key
-        run: |
-          rm -f /home/runner/.ssh/id_rsa
-        if: ${{ always() }}
