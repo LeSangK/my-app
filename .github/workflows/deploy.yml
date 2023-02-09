@@ -2,8 +2,7 @@ name: build-develop
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
     paths-ignore:
       - "**/*.md"
       - ".vscode/**"
