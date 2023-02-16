@@ -5,12 +5,12 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
 import { store } from "./app/store";
-import { Form } from "./container/Form";
+import App from "./container/App";
 
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <Form />
+      <App />
     </React.StrictMode>
   </Provider>,
   document.getElementById("root")

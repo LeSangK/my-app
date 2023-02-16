@@ -1,9 +1,12 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React from "react";
+import { useDispatch } from "react-redux";
 
-import { useSelector } from '../app/store';
-import { addRandomItem, deleteItemById } from '../feature/randomItem/randomItemSlice';
-import { getUniqueStr } from '../utils/common';
+import { useSelector } from "../app/store";
+import {
+  addRandomItem,
+  deleteItemById,
+} from "../feature/randomItem/randomItemSlice";
+import { getUniqueStr } from "../utils/common";
 
 export default function App() {
   const items = useSelector((state) => state.items);
